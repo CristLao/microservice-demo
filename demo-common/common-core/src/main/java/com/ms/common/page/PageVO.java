@@ -1,4 +1,4 @@
-package com.ms.user.common.page;
+package com.ms.common.page;
 
 import lombok.Builder;
 import lombok.Data;

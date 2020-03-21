@@ -1,4 +1,4 @@
-package com.ms.user.common.result;
+package com.ms.common.result;
 
 import lombok.Builder;
 import lombok.Getter;

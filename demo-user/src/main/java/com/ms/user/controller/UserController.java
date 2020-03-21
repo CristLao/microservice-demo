@@ -1,7 +1,7 @@
 package com.ms.user.controller;
 
-import com.ms.user.common.page.PageVO;
-import com.ms.user.common.result.ApiResponseData;
+import com.ms.common.page.PageVO;
+import com.ms.common.result.ApiResponseData;
 import com.ms.user.domain.UserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
