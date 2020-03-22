@@ -11,6 +11,10 @@ import java.util.List;
 public class PageUtil {
 
     public static <T> PageVO<T> getPage(List<T> t, int page, int size, int total) {
-        return PageVO.<T> builder().data(t).page(page).size(size).total(total).build();
+        return PageVO.<T> builder().data(t)
+                                   .page(page)
+                                   .size(size)
+                                   .total(total)
+                                   .build();
     }
 }
