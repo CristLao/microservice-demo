@@ -1,7 +1,9 @@
 package com.ms.user.controller;
 
+import com.ms.common.page.PageUtil;
 import com.ms.common.page.PageVO;
 import com.ms.common.result.ApiResponseData;
+import com.ms.common.result.ResponseUtil;
 import com.ms.user.domain.UserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +29,7 @@ public class UserController {
         UserDTO userDTO = new UserDTO();
         userDTO.setName("crist");
         userDTO.setNumber(11);
-        return ApiResponseData.<UserDTO> builder().result(userDTO).build();
+        return ResponseUtil.ok(userDTO);
     }
 
     @GetMapping("/demoPage")
@@ -37,7 +39,7 @@ public class UserController {
         userDTO.setName("crist");
         userDTO.setNumber(11);
         List<UserDTO> singleton = Collections.singletonList(userDTO);
-        PageVO<UserDTO> pageVO = PageVO.<UserDTO> builder().data(singleton).page(1).size(1).total(1).build();
-        return ApiResponseData.<PageVO<UserDTO>> builder().result(pageVO).build();
+        PageVO<UserDTO> pageVO = PageUtil.getPage(singleton, 1, 1, 1);
+        return ResponseUtil.ok(pageVO);
     }
 }
