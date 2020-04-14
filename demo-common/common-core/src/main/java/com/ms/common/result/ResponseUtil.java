@@ -31,6 +31,18 @@ public class ResponseUtil {
         return error(t, DEFAULT_ERROR_CODE, DEFAULT_ERROR_MSG);
     }
 
+    public static <T> ApiResponseData<T> error() {
+        return error(null, DEFAULT_ERROR_CODE, DEFAULT_ERROR_MSG);
+    }
+
+    public static <T> ApiResponseData<T> error(Integer code, String message) {
+        return error(null, code, message);
+    }
+
+    public static <T> ApiResponseData<T> error(String message) {
+        return error(null, DEFAULT_ERROR_CODE, message);
+    }
+
     public static <T> ApiResponseData<T> error(T t, String message) {
         return error(t, DEFAULT_ERROR_CODE, message);
     }

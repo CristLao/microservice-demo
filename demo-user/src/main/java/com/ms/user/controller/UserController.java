@@ -6,12 +6,13 @@ import com.ms.common.result.ApiResponseData;
 import com.ms.common.result.ResponseUtil;
 import com.ms.user.domain.UserDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.List;
+
+import static com.ms.user.exception.UserException.ERROR;
 
 /**
  * @author : crist
@@ -39,6 +40,18 @@ public class UserController {
         userDTO.setName("crist");
         userDTO.setNumber(11);
         List<UserDTO> singleton = Collections.singletonList(userDTO);
+        PageVO<UserDTO> pageVO = PageUtil.getPage(singleton, 1, 1, 1);
+        return ResponseUtil.ok(pageVO);
+    }
+
+
+    @PostMapping("/demoException")
+    public ApiResponseData<PageVO<UserDTO>> demoException(@RequestBody @Valid UserDTO userDTO) {
+        log.info("test");
+        List<UserDTO> singleton = Collections.singletonList(userDTO);
+        if (singleton != null) {
+            throw ERROR;
+        }
         PageVO<UserDTO> pageVO = PageUtil.getPage(singleton, 1, 1, 1);
         return ResponseUtil.ok(pageVO);
     }
