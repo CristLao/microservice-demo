@@ -38,7 +38,7 @@ public class ErrorHandler {
     }
 
     @ExceptionHandler(BaseSystemException.class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ResponseStatus(value = HttpStatus.OK)
     public ApiResponseData handleBindException(BaseSystemException ex) {
         log.error("业务异常: {}", ex.getMessage(), ex);
         return ResponseUtil.error(ex.getCode(), ex.getMessage());
