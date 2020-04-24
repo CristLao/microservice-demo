@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolationException;
 
-import static com.ms.common.http.ErrorCodeEnum.*;
+import static com.ms.common.exception.ErrorCodeEnum.*;
 
 
 /**

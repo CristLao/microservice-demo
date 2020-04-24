@@ -1,4 +1,4 @@
-package com.ms.common.http;
+package com.ms.common.exception;
 
 import lombok.Getter;
 
