@@ -45,7 +45,7 @@ public class ErrorHandler {
     }
 
     @ExceptionHandler(Throwable.class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiResponseData handleAllException(Throwable ex, HttpServletRequest req) {
         log.error("系统异常: {}", ex.getMessage(), ex);
         return ResponseUtil.error(ERR_SYS_PARAM.getErrorCode(), ERR_SYS_PARAM.getErrorDesc());
@@ -81,7 +81,7 @@ public class ErrorHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiResponseData exceptionHandler(Exception e) {
         log.error(e.getMessage(), e);
         return ResponseUtil.error();
